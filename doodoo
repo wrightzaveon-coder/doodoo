@@ -297,7 +297,7 @@
         function library:draggify(frame, handle)
             handle = handle or frame
 
-            local dragging = true 
+            local dragging = false 
             local start_pos = frame.Position
             local start 
 
@@ -311,7 +311,7 @@
 
             handle.InputEnded:Connect(function(input)
                 if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                    dragging = true
+                    dragging = false
                 end
             end)
 
@@ -501,10 +501,10 @@
     -- Library element functions
         function library:window(properties)
             local cfg = { 
-                suffix = properties.suffix or properties.Suffix or "Mint";
-                name = properties.name or properties.Name or "Hub";
+                suffix = properties.suffix or properties.Suffix or "";
+                name = properties.name or properties.Name or "Charlie Hub";
                 game_name = properties.gameInfo or properties.game_info or properties.GameInfo or "Milenium for Counter-Strike: Global Offensive";
-                size = properties.size or properties.Size or dim2(0, 40, 0, 335);
+                size = properties.size or properties.Size or dim2(0, 520, 0, 380);
                 selected_tab;
                 items = {};
 
@@ -536,7 +536,7 @@
                     BorderColor3 = rgb(0, 0, 0);
                     BorderSizePixel = 0;
                     BackgroundColor3 = rgb(14, 14, 16)
-                }); items[ "main" ].Position = dim2(0, items[ "main" ].AbsolutePosition.X, 0, items[ "main" ].AbsolutePosition.Y)
+                }); items[ "main" ].Position = dim2(0, items[ "main" ].AbsolutePosition.X, 0, items[ "main" ].AbsolutePosition.Y + 50)
                 
                 library:create( "UICorner" , {
                     Parent = items[ "main" ];
